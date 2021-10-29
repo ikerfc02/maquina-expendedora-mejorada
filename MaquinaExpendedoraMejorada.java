@@ -103,4 +103,20 @@ public class MaquinaExpendedoraMejorada {
         }
         return totalAVaciar;
     }
+    
+    /**
+     * Devuelve numero de billetes vendidos
+     */
+    public int getNumeroBilletesVendidos() {
+        int numeroBilletesVendidos = totalDineroAcumulado / precioBillete;
+        return numeroBilletesVendidos;
+    }
+    
+    /**
+     * Imprime numero de billetes vendidos
+     */
+    public void imprimeNumeroBilletesVendidos() {
+        int numeroBilletesVendidos = totalDineroAcumulado / precioBillete;
+        System.out.println("Se han vendido" + numeroBilletesVendidos + "billetes." );
+    }
 }
