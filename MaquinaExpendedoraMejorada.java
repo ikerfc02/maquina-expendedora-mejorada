@@ -91,7 +91,7 @@ public class MaquinaExpendedoraMejorada {
      * Vacía todos los depósitos de la máquina.
      */
     public int vaciarDeposito(){
-        int totalAVaciar = totalDineroAcumulado;
+        int totalAVaciar = totalDineroAcumulado + balanceClienteActual;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;        
         return totalAVaciar;
