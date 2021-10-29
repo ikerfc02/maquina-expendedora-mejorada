@@ -90,10 +90,17 @@ public class MaquinaExpendedoraMejorada {
     /**
      * Vacía todos los depósitos de la máquina.
      */
-    public int vaciarDeposito(){
+    public int vaciarDeposito() {
         int totalAVaciar = totalDineroAcumulado + balanceClienteActual;
-        balanceClienteActual = 0;
-        totalDineroAcumulado = 0;        
+        if (balanceClienteActual != 0) {
+            System.out.println("Se está realizando una operación.");
+            System.out.println("Por favor retire su dinero antes.");
+            totalAVaciar = -1; 
+        }
+        else {
+            totalDineroAcumulado = 0;        
+            
+        }
         return totalAVaciar;
     }
 }
