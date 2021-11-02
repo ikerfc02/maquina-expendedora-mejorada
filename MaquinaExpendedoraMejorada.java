@@ -10,6 +10,8 @@ public class MaquinaExpendedoraMejorada {
     private String estacionOrigen;
     // El destino del billete
     private String estacionDestino;
+    //Numero de billetes vendidos
+    private int numeroBilletes;
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
@@ -22,6 +24,7 @@ public class MaquinaExpendedoraMejorada {
         totalDineroAcumulado = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
+        numeroBilletes = 0;
     }
 
     /**
@@ -55,7 +58,6 @@ public class MaquinaExpendedoraMejorada {
      */
     public void imprimirBillete() {
         int cantidadDeDineroQueFalta = precioBillete - balanceClienteActual;
-        
         if (cantidadDeDineroQueFalta <= 0) {        
             // Simula la impresion de un billete
             System.out.println("##################");
@@ -69,6 +71,8 @@ public class MaquinaExpendedoraMejorada {
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
             balanceClienteActual = balanceClienteActual - precioBillete;
+            //Incrementa numero de billetes vendidos
+            numeroBilletes = numeroBilletes + 1; 
         }
         else {
             System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " euros mas!");
@@ -107,16 +111,14 @@ public class MaquinaExpendedoraMejorada {
     /**
      * Devuelve numero de billetes vendidos
      */
-    public int getNumeroBilletesVendidos() {
-        int numeroBilletesVendidos = totalDineroAcumulado / precioBillete;
-        return numeroBilletesVendidos;
+    public int getNumeroBilletesVendidos() { 
+        return numeroBilletes;
     }
     
     /**
      * Imprime numero de billetes vendidos
      */
     public void imprimeNumeroBilletesVendidos() {
-        int numeroBilletesVendidos = totalDineroAcumulado / precioBillete;
-        System.out.println("Se han vendido" + numeroBilletesVendidos + "billetes." );
+        System.out.println("Se han vendido" + numeroBilletes + "billetes." );
     }
 }
