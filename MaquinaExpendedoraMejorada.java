@@ -16,6 +16,8 @@ public class MaquinaExpendedoraMejorada {
     private boolean maquinaPremio;
     //El numero maximo de billetes que se pueden vender
     private int numeroMaximo;
+    //El numero de billetes con premio
+    private int posiblePremio;
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
@@ -31,6 +33,7 @@ public class MaquinaExpendedoraMejorada {
         numeroBilletes = 0;
         maquinaPremio = maquinaConSinPremio ;
         numeroMaximo = numeroMaximoBilletes;
+        posiblePremio = 2;
     }
 
     /**
@@ -82,8 +85,14 @@ public class MaquinaExpendedoraMejorada {
                 System.out.println("# " + precioBillete + " euros.");
                 System.out.println("##################");
                 if (maquinaPremio == true) {
-                    // Simula la impresion de un billete con Premio            
-                    System.out.println("Además tienes " + (precioBillete * 0.1) + " en el establecimiento que quieras.");
+                    if (posiblePremio == 0) {
+                        // Simula la impresion de un billete con Premio            
+                        System.out.println("Además tienes " + (precioBillete * 0.1) + " en el establecimiento que quieras.");
+                        posiblePremio = 2;
+                    }
+                    else {
+                        posiblePremio = posiblePremio - 1;
+                    }    
                 }
                 
                 // Actualiza el total de dinero acumulado en la maquina
@@ -93,7 +102,7 @@ public class MaquinaExpendedoraMejorada {
                 //Incrementa numero de billetes vendidos
                 numeroBilletes = numeroBilletes + 1;
                 //Resta el numero de billetes vendidos
-                numeroMaximo = numeroMaximo - 1;
+                numeroMaximo = numeroMaximo - 1;          
             }
             else {
                 System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " euros mas!");            
